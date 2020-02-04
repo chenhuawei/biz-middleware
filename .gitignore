@@ -1,0 +1,15 @@
+# IntelliJ
+*.iml
+*.ipr
+.idea
+
+# OS files
+.DS_Store
+*/.DS_Store
+
+# JVM crash logs
+hs_err_pid*
+
+# Log file
+*.log
+target
