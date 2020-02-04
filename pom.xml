@@ -13,6 +13,16 @@
         <module>demo</module>
     </modules>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>maxwell-snapshots</id>
+            <url>http://119.3.93.92:8081/nexus/repository/maxwell-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>maxwell-releases</id>
+            <url>http://119.3.93.92:8081/nexus/repository/maxwell-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>

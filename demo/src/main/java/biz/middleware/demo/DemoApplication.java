@@ -36,8 +36,6 @@ public class DemoApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-//                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-//                .apis(RequestHandlerSelectors.basePackage("com.maxwell"))
                 .paths(PathSelectors.any())
                 .build();
     }
