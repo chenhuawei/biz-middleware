@@ -3,6 +3,7 @@ package biz.middleware.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -38,6 +39,11 @@ public class DemoApplication {
                 .select()
                 .paths(PathSelectors.any())
                 .build();
+    }
+
+    @Bean
+    public AuthenticationProvider demoAuthenticationProvider() {
+        return new DemoAuthenticationProviderImpl();
     }
 
     private ApiInfo apiInfo() {

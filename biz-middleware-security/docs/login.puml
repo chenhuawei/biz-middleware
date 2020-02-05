@@ -1,0 +1,47 @@
+@startuml
+
+actor User
+participant "FilterSecurityInterceptor" as SpringFilter
+participant "CustomAuthenticationProcessingFilter" as Filter
+participant AuthenticationProvider #red
+
+participant Controller
+participant Service
+
+
+User -> SpringFilter
+
+
+alt 鉴权通过（允许匿名访问的接口或者当前用户具有相应的权限）
+    alt 登录请求
+    SpringFilter -> Filter
+    Filter -> AuthenticationProvider: authenticate
+    note right
+    实现登录逻辑，如：
+    1、验证用户名、密码是否正确
+    2、加载用户所具有的权限
+    end note
+    AuthenticationProvider --> Filter
+
+    Filter --> SpringFilter
+    SpringFilter --> User
+    else 其它请求
+
+    SpringFilter -> Controller
+
+    Controller -> Service
+    Service --> Controller
+    Controller --> SpringFilter
+    SpringFilter --> User
+    end
+
+else 鉴权失败
+    SpringFilter --> User: 403
+
+end
+
+
+
+
+
+@enduml
