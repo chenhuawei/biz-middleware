@@ -19,7 +19,8 @@ public class DefaultAuthenticationResolver implements AuthenticationResolver {
     public Authentication resolve(InputStream inputStream) {
         try {
             UsernamePasswordLoginRequestModel model = objectMapper.readValue(inputStream, UsernamePasswordLoginRequestModel.class);
-            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(model.getPassword(), model.getUsername());
+            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+                    model.getUsername(), model.getPassword());
             return token;
         } catch (IOException e) {
             log.error("parse json failed", e);

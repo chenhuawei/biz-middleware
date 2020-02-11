@@ -2,12 +2,15 @@ package biz.middleware.demo;
 
 import biz.middleware.security.model.UsernamePasswordLoginRequestModel;
 import io.swagger.annotations.Api;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.Objects;
 
 @RestController
 @Api
@@ -19,10 +22,16 @@ public class DemoController {
         return "login";
     }
 
+    @RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.POST})
+    public void logout() {
+    }
+
     @RequestMapping(value = "/self", method = {RequestMethod.GET, RequestMethod.POST})
     @RolesAllowed("user")
     public String self() {
-        return "self";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = Objects.toString(authentication.getPrincipal(), null);
+        return username;
     }
 
 

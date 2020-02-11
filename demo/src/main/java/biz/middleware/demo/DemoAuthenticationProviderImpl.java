@@ -15,19 +15,19 @@ import java.util.Objects;
 public class DemoAuthenticationProviderImpl implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String name = authentication.getName();
-        String principal = Objects.toString(authentication.getPrincipal(), null);
+        String name = Objects.toString(authentication.getPrincipal(), null);
+        String credentials = Objects.toString(authentication.getCredentials(), null);
 
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>(1);
-        String role = "ROLE_user";
+        String role = "user";
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
 
         authorityList.add(authority);
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                name, principal, authorityList);
+                name, credentials, authorityList);
 
-        log.debug("authentication {}, {}, {}", name, principal, token);
+        log.debug("authentication {}, {}, {}", name, credentials, token);
 
         return token;
     }
