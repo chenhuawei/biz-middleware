@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = false)
 @EnableGlobalMethodSecurity(jsr250Enabled = true)
 @Slf4j
 public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
