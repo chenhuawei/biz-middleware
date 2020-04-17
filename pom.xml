@@ -12,7 +12,6 @@
         <module>biz-middleware-security</module>
         <module>demo</module>
         <module>biz-middleware-excel</module>
-        <module>biz-middleware-common</module>
         <module>biz-middleware-log</module>
         <module>biz-middleware-helper</module>
         <module>biz-middleware-metrics</module>
