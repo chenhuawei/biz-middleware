@@ -15,6 +15,7 @@
         <module>biz-middleware-log</module>
         <module>biz-middleware-helper</module>
         <module>biz-middleware-metrics</module>
+        <module>biz-middleware-compression</module>
     </modules>
 
     <distributionManagement>
