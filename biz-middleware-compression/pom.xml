@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>compression</artifactId>
+    <artifactId>biz-middleware-compression</artifactId>
     <dependencies>
         <dependency>
             <groupId>net.coobird</groupId>

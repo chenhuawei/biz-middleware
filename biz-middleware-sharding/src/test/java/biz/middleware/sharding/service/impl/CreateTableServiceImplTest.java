@@ -59,6 +59,7 @@ public class CreateTableServiceImplTest {
             createTableService.createTableLike("t_stack_accomp_2020_06_03",
                     "t_stack_accomp");
 
+            //createTableService.dropTable("t_stack_accomp_2020_06_03");
 
             Date date = DateUtils.parseDate("2020-06-03 13:33:00", "yyyy-MM-dd HH:mm:ss");
                     //LocalDateTime.of(2020, 6, 3, 13, 33);
