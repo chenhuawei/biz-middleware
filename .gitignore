@@ -13,3 +13,4 @@ hs_err_pid*
 # Log file
 *.log
 target
+/biz-middleware-sharding/src/test/resources/application-local.properties

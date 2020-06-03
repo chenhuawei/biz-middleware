@@ -16,6 +16,7 @@
         <module>biz-middleware-helper</module>
         <module>biz-middleware-metrics</module>
         <module>biz-middleware-compression</module>
+        <module>biz-middleware-sharding</module>
     </modules>
 
     <distributionManagement>
@@ -117,7 +118,23 @@
                 <artifactId>spring-web</artifactId>
                 <version>5.1.8.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>4.1.0</version>
+            </dependency>
 
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.2.0</version>
+<!--                <version>3.3.1.tmp</version>-->
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.2.8</version>
+            </dependency>
 
             <!--<dependency>-->
                 <!--<groupId>org.springframework.metrics</groupId>-->
