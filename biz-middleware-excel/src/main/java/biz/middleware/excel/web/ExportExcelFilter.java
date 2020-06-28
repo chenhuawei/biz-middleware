@@ -30,6 +30,8 @@ public class ExportExcelFilter extends OncePerRequestFilter {
                 ExcelContextHolder.clear();
             }
 
+        } else {
+            filterChain.doFilter(request, response);
         }
     }
 }
