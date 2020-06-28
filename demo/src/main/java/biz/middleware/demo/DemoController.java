@@ -1,15 +1,16 @@
 package biz.middleware.demo;
 
+import biz.middleware.excel.annotations.ExportExcelMapping;
 import biz.middleware.security.model.UsernamePasswordLoginRequestModel;
 import io.swagger.annotations.Api;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -50,5 +51,18 @@ public class DemoController {
     @RequestMapping(value = "/none", method = RequestMethod.GET)
     public String none() {
         return "none";
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ExportExcelMapping("classpath:/excel/templates/list.xls")
+    public List list() {
+        return new ArrayList();
+    }
+
+
+    @RequestMapping(value = "/list2", method = RequestMethod.GET)
+    @ExportExcelMapping("classpath:/excel/templates/list.xls")
+    public List list2(@RequestParam("pageNo") int pageNo, @RequestParam("pageSize") int pageSize) {
+        return Arrays.asList(pageNo, pageSize);
     }
 }

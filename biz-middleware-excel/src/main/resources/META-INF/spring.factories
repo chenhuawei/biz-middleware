@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+biz.middleware.excel.config.BizMiddlewareExcelConfig
